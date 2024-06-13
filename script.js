@@ -113,17 +113,12 @@ function getDataThen(geocodingData) {
             }
         }).then((data) => {
             isUSA = false;
-            if (isHebrew()) {
-                showDataHebrow(data);
-            }
-            else {
-                showDataEnglish(data);
-            }
+            showData(dataCity);
         })
         .catch((err) => console.log(err));
 }
 
-function showDataEnglish(dataCity) {
+function showData(dataCity) {
     let valueDes = dataCity.weather[0].description;
     const valueTemp = Math.ceil((dataCity.main.temp) - 273.15);
     const valueFeels = Math.ceil((dataCity.main.feels_like) - 273.15);
@@ -142,20 +137,64 @@ function showDataEnglish(dataCity) {
     const hourSunset = sunsetShow.getHours();
     const minuteSunset = sunsetShow.getMinutes();
 
-
     city.innerText = search.value;
-    if ((valueDes == "clear sky") && (dataCity.weather[0].icon == '01d')) {
-        valueDes = 'sunny';
+
+    if (isHebrew()) {
+        if ((valueDes == "clear sky") && (dataCity.weather[0].icon == '01d')) {
+            valueDes = 'שמשי';
+        }
+        if ((valueDes == "clear sky") && (dataCity.weather[0].icon == '01n')) {
+            valueDes = 'שמים נקיים';
+        }
+        if (valueDes == "few clouds") {
+            valueDes = 'מעט מאוד עננים';
+        }
+        if (valueDes == "scattered clouds") {
+            valueDes = 'עננים מפוזרים';
+        }
+        if (valueDes == "broken clouds") {
+            valueDes = 'מעונן';
+        }
+        if (valueDes == "shower rain") {
+            valueDes = 'טפטוף קל';
+        }
+        if (valueDes == "rain") {
+            valueDes = 'גשום';
+        }
+        if (valueDes == "thunderstorm") {
+            valueDes = 'סופת ברקים';
+        }
+        if (valueDes == "snow") {
+            valueDes = 'שלג';
+        }
+        if (valueDes == "mist") {
+            valueDes = 'ערפל';
+        }
+        description.innerText = valueDes;
+        temp.innerText = `${valueTemp}°C`;
+        feelsLike.innerText = `מרגיש כמו: ${valueFeels}°C`;
+        humidity.innerText = `לחות: ${valueHumidity}%`;
+        sunrise.innerText = `זריחה: ${hourSunrise}:${minuteSunrise} בבוקר`;
+        sunset.innerText = `שקיעה: ${hourSunset}:${minuteSunset} בערב`;
+        icon.innerText = emojiIcon;
+        containerWeather.style.display = 'block';
+        containerWeather.style.display = 'flex';
+        containerWeather.style.direction = 'rtl'
     }
-    description.innerText = valueDes;
-    temp.innerText = `${valueTemp}°C`;
-    feelsLike.innerText = `Feels like: ${valueFeels}°C`;
-    humidity.innerText = `Humidity: ${valueHumidity}%`;
-    sunrise.innerText = `Sunrise: ${hourSunrise}:${minuteSunrise} AM`;
-    sunset.innerText = `Sunset: ${hourSunset}:${minuteSunset} PM`;
-    icon.innerText = emojiIcon;
-    containerWeather.style.display = 'block';
-    containerWeather.style.display = 'flex';
+    else {
+        if ((valueDes == "clear sky") && (dataCity.weather[0].icon == '01d')) {
+            valueDes = 'sunny';
+        }
+        description.innerText = valueDes;
+        temp.innerText = `${valueTemp}°C`;
+        feelsLike.innerText = `Feels like: ${valueFeels}°C`;
+        humidity.innerText = `Humidity: ${valueHumidity}%`;
+        sunrise.innerText = `Sunrise: ${hourSunrise}:${minuteSunrise} AM`;
+        sunset.innerText = `Sunset: ${hourSunset}:${minuteSunset} PM`;
+        icon.innerText = emojiIcon;
+        containerWeather.style.display = 'block';
+        containerWeather.style.display = 'flex';
+    }
 }
 
 function isHebrew() {
@@ -173,66 +212,5 @@ function isHebrew() {
     return false;
 }
 
-function showDataHebrow(dataCity) {
-    let valueDes = dataCity.weather[0].description;
-    const valueTemp = Math.ceil((dataCity.main.temp) - 273.15);
-    const valueFeels = Math.ceil((dataCity.main.feels_like) - 273.15);
-    const valueHumidity = dataCity.main.humidity;
-    const emojiIcon = iconsMapping[dataCity.weather[0].icon];
 
-
-    const timeSunrise = dataCity.sys.sunrise;
-    const sunriseShow = new Date(timeSunrise * 1000);
-    const hourSunrise = sunriseShow.getHours();
-    const minuteSunrise = sunriseShow.getMinutes();
-
-
-    const timeSunset = dataCity.sys.sunset;
-    const sunsetShow = new Date(timeSunset * 1000);
-    const hourSunset = sunsetShow.getHours();
-    const minuteSunset = sunsetShow.getMinutes();
-
-
-    city.innerText = search.value;
-    if ((valueDes == "clear sky") && (dataCity.weather[0].icon == '01d')) {
-        valueDes = 'שמשי';
-    }
-    if ((valueDes == "clear sky") && (dataCity.weather[0].icon == '01n')) {
-        valueDes = 'שמים נקיים';
-    }
-    if (valueDes == "few clouds") {
-        valueDes = 'מעט מאוד עננים';
-    }
-    if (valueDes == "scattered clouds") {
-        valueDes = 'עננים מפוזרים';
-    }
-    if (valueDes == "broken clouds") {
-        valueDes = 'מעונן';
-    }
-    if (valueDes == "shower rain") {
-        valueDes = 'טפטוף קל';
-    }
-    if (valueDes == "rain") {
-        valueDes = 'גשום';
-    }
-    if (valueDes == "thunderstorm") {
-        valueDes = 'סופת ברקים';
-    }
-    if (valueDes == "snow") {
-        valueDes = 'שלג';
-    }
-    if (valueDes == "mist") {
-        valueDes = 'ערפל';
-    }
-    description.innerText = valueDes;
-    temp.innerText = `${valueTemp}°C`;
-    feelsLike.innerText = `מרגיש כמו: ${valueFeels}°C`;
-    humidity.innerText = `לחות: ${valueHumidity}%`;
-    sunrise.innerText = `זריחה: ${hourSunrise}:${minuteSunrise} בבוקר`;
-    sunset.innerText = `שקיעה: ${hourSunset}:${minuteSunset} בערב`;
-    icon.innerText = emojiIcon;
-    containerWeather.style.display = 'block';
-    containerWeather.style.display = 'flex';
-    containerWeather.style.direction = 'rtl'
-}
 
