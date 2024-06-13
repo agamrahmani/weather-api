@@ -41,8 +41,6 @@ let code;
 let isUSA = false;
 
 
-
-// הוסף מאזין לאירוע input על אלמנט input
 search.addEventListener('input', function (event) {
     containerWeather.style.display = 'none';
 });
