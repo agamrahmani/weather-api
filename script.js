@@ -33,11 +33,19 @@ const humidity = document.getElementById('humidity');
 const sunrise = document.getElementById('sunrise');
 const sunset = document.getElementById('sunset');
 const icon = document.getElementById('icon');
+const containerWeather = document.getElementById('container-weather');
 
 let geocodingData;
 let dataCity;
 let code;
 let isUSA = false;
+
+
+
+// הוסף מאזין לאירוע input על אלמנט input
+search.addEventListener('input', function (event) {
+    containerWeather.style.display = 'none';
+});
 
 
 function getGeocodingThen() {
@@ -152,8 +160,7 @@ function show(dataCity) {
     sunrise.innerText = `Sunrise: ${hourSunrise}:${minuteSunrise} AM`;
     sunset.innerText = `Sunset: ${hourSunset}:${minuteSunset} PM`;
     icon.innerText = emojiIcon;
-
-
-
+    containerWeather.style.display = 'block';
+    containerWeather.style.display = 'flex';
 }
 
