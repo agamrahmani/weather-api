@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
     <title>Weather</title>
 </head>
@@ -15,18 +18,18 @@
         <input type="text" id="search">
         <button id="btnSearch" onclick="getGeocodingThen()">Search</button>
     </div>
-    <h6>הערה: ערים בישראל אפשר לחפש בעברית</h6>
-    <h6>Note: Cities in Israel can be searched in Hebrew.</h6>
+    <h5>Note: Cities in Israel can be searched in Hebrew.</h5>
+    <h5>הערה: ערים בישראל אפשר לחפש בעברית</h5>
     <div id="container-weather">
         <h1 id="city"></h1>
         <h3 id="description"></h3>
         <h2 id="temp"></h2>
-        <div id="feelsLike"></div>
-        <div id="maxTemp"></div>
-        <div id="minTemp"></div>
-        <div id="humidity"></div>
-        <div id="sunrise"></div>
-        <div id="sunset"></div>
+        <div id="feelsLike" class="values"></div>
+        <div id="maxTemp" class="values"></div>
+        <div id="minTemp" class="values"></div>
+        <div id="humidity" class="values"></div>
+        <div id="sunrise" class="values"></div>
+        <div id="sunset" class="values"></div>
         <div id="icon"></div>
     </div>
 </body>
