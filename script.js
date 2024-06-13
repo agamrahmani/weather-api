@@ -46,7 +46,7 @@ search.addEventListener('input', function (event) {
 
 function getGeocodingThen() {
     const word = search.value;
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${word}&limit=1&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${word}&limit=1&appid=${apiKey}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error("Network response was not ok");
@@ -69,7 +69,7 @@ function getGeocodingThen() {
 }
 
 function cityUSA(word) {
-    fetch(`http://api.geonames.org/searchJSON?q=${word}&countryBias=US&maxRows=1&username=agamrahmani2904`)
+    fetch(`https://api.geonames.org/searchJSON?q=${word}&countryBias=US&maxRows=1&username=agamrahmani2904`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error("Network response was not ok");
@@ -86,7 +86,7 @@ function cityUSA(word) {
 }
 
 function getGeocodingUSAThen(word, code) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${word},${code},US&limit=1&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${word},${code},US&limit=1&appid=${apiKey}`)
         .then((res) => {
             if (!res.ok) {
                 throw new Error("Network response was not ok");
