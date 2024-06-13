@@ -113,7 +113,7 @@ function getDataThen(geocodingData) {
             }
         }).then((data) => {
             isUSA = false;
-            showData(dataCity);
+            showData(data);
         })
         .catch((err) => console.log(err));
 }
