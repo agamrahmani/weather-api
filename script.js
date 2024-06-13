@@ -27,8 +27,6 @@ const city = document.getElementById('city');
 const description = document.getElementById('description');
 const temp = document.getElementById('temp');
 const feelsLike = document.getElementById('feelsLike');
-const maxTemp = document.getElementById('maxTemp');
-const minTemp = document.getElementById('minTemp');
 const humidity = document.getElementById('humidity');
 const sunrise = document.getElementById('sunrise');
 const sunset = document.getElementById('sunset');
@@ -127,8 +125,6 @@ function show(dataCity) {
     let valueDes = dataCity.weather[0].description;
     const valueTemp = Math.ceil((dataCity.main.temp) - 273.15);
     const valueFeels = Math.ceil((dataCity.main.feels_like) - 273.15);
-    const valueMax = Math.ceil((dataCity.main.temp_max) - 273.15);
-    const valueMin = Math.ceil((dataCity.main.temp_min) - 273.15);
     const valueHumidity = dataCity.main.humidity;
     const emojiIcon = iconsMapping[dataCity.weather[0].icon];
 
@@ -152,8 +148,6 @@ function show(dataCity) {
     description.innerText = valueDes;
     temp.innerText = `${valueTemp}°C`;
     feelsLike.innerText = `Feels like: ${valueFeels}°C`;
-    maxTemp.innerText = `Maximum temperature: ${valueMax}°C`;
-    minTemp.innerText = `Minimum temperature: ${valueMin}°C`;
     humidity.innerText = `Humidity: ${valueHumidity}%`;
     sunrise.innerText = `Sunrise: ${hourSunrise}:${minuteSunrise} AM`;
     sunset.innerText = `Sunset: ${hourSunset}:${minuteSunset} PM`;
