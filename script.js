@@ -55,7 +55,6 @@ function getGeocodingThen() {
                 return res.json();
             }
         }).then((data) => {
-            console.log(data);
             geocodingData = data;
             getDataThen(geocodingData);
         })
