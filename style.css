@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body {
+    background-image: url("./sunnyImg.jpg");
+    background-repeat: no repeat;
+    background-position: top left;
+    background-size: cover;
+    background-attachment: fixed;
+} */
+
+h1 {
+    text-align: center;
+}
+
+#container-search {
+    display: flex;
+    justify-content: center;
+}
+
+#search {
+    width: 600px;
+    font-size: 1em;
+}
+
+#btnSearch {
+    margin-left: 10px;
+    width: 100px;
+    height: 30px;
+    font-size: 1em;
+}
+
+#container-weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 710px;
+    margin: 30px auto;
+}

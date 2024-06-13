@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Weather</title>
+</head>
+
+<body>
+    <h1>Weather</h1>
+    <div id="container-search">
+        <input type="text" id="search">
+        <button id="btnSearch" onclick="getGeocodingThen()">Search</button>
+    </div>
+    <h6>הערה: ערים בישראל אפשר לחפש בעברית</h6>
+    <h6>Note: Cities in Israel can be searched in Hebrew.</h6>
+    <div id="container-weather">
+        <h1 id="city"></h1>
+        <h3 id="description"></h3>
+        <h2 id="temp"></h2>
+        <div id="feelsLike"></div>
+        <div id="maxTemp"></div>
+        <div id="minTemp"></div>
+        <div id="humidity"></div>
+        <div id="sunrise"></div>
+        <div id="sunset"></div>
+        <div id="icon"></div>
+    </div>
+</body>
+
+</html>
