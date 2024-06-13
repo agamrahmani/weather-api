@@ -94,7 +94,6 @@ function getGeocodingUSAThen(word, code) {
                 return res.json();
             }
         }).then((data) => {
-            console.log(data);
             geocodingData = data;
             getDataThen(geocodingData);
         })
@@ -113,9 +112,7 @@ function getDataThen(geocodingData) {
             }
         }).then((data) => {
             isUSA = false;
-            dataCity = data;
-            console.log(dataCity);
-            show(dataCity);
+            show(data);
 
         })
         .catch((err) => console.log(err));
